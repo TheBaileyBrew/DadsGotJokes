@@ -11,25 +11,38 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:text="This is a joke"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:padding="30dp"/>
+        android:padding="25dp"/>
 
     <TextView
         android:id="@+id/display_answer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:paddingEnd="12dp"
+        android:paddingStart="12dp"
         app:layout_constraintTop_toBottomOf="@id/display_joke"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="22sp"
         android:textStyle="italic"
         tools:text="This is an answer"/>
+
+    <ImageView
+        android:id="@+id/joke_dog_image"
+        android:layout_width="275dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/laughing_dog_joke_face_before"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

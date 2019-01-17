@@ -25,6 +25,14 @@ public class JokeTeller {
                 "Bison..."));
         jokesOfTheDadVariety.add(new Joke(7, "Why can't you hear a pterodactyl going to the bathroom?",
                 "Because the pee is silent..."));
+        jokesOfTheDadVariety.add(new Joke(8, "Have you heard about the movie 'Constipation'?",
+                "It hasn't come out yet..."));
+        jokesOfTheDadVariety.add(new Joke(9, "How many tickles does it take to make an octopus laugh?",
+                "Ten tickles..."));
+        jokesOfTheDadVariety.add(new Joke(10,"What do you call a fish with an eye missing?",
+                "A f-shhh..."));
+        jokesOfTheDadVariety.add(new Joke(11, "Why did the coffee file a police report?",
+                "Because he got mugged..."));
 
 
         return jokesOfTheDadVariety.get(randomJoke.nextInt(jokesOfTheDadVariety.size()));

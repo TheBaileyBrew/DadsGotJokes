@@ -18,12 +18,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.udacity.gradle.builditbigger.MainActivityFragment.hideProgressBar;
+
 
 public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
     private final static String TAG = EndpointsAsyncTask.class.getSimpleName();
 
     private static MyApi myApiService = null;
     private Context context;
+    private MainActivityFragment mainActivityFragment;
 
     @Override
     protected String doInBackground(Context... params) {
@@ -65,7 +68,9 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
         Log.e(TAG, "onPostExecute: jokeA: " + jokeA );
         openActivity.putExtra(ConstantTerror.JOKE_KEY, jokeQ);
         openActivity.putExtra(ConstantTerror.ANSWER_KEY, jokeA);
+
         context.startActivity(openActivity);
+        hideProgressBar();
 
     }
 }

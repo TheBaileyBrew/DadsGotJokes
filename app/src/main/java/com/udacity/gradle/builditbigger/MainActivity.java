@@ -1,7 +1,9 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +12,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import static com.udacity.gradle.builditbigger.MainActivityFragment.showProgressBar;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -56,7 +60,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tell_me_a_joke:
-                new EndpointsAsyncTask().execute(this);
+                showProgressBar();
+
+                Handler handler = new Handler();
+                Runnable r = new Runnable() {
+                    @Override
+                    public void run() {
+                        getNewJoke();
+                    }
+                };
+                handler.postDelayed(r, 2000);
+
                 //Intent newJokeDisplayIntent = new Intent(this.getApplicationContext(), JokeDisplayActivity.class);
                 //String joke = jokeTeller.tellJoke();
                 //newJokeDisplayIntent.putExtra(getString(R.string.this_is_a_joke), joke);
@@ -64,6 +78,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
         }
-
     }
+
+    private void getNewJoke() {
+        new EndpointsAsyncTask().execute(this);
+    }
+
+
+
 }
