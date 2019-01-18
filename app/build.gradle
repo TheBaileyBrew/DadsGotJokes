@@ -30,27 +30,33 @@ android {
         }
     }
 
-    flavorDimensions "version"
+    flavorDimensions "versions"
     productFlavors {
         free {
-            applicationIdSuffix ".free"
-            versionNameSuffix "-free"
+            applicationId "com.udacity.gradle.builditbigger.free"
+            versionName "1.0-free"
+            //Used to identify in the BuildConfig if flavor is free or paid
+            buildConfigField "boolean", "PAID_VERSION", "false"
         }
 
         paid {
-            applicationIdSuffix ".paid"
-            versionNameSuffix "-paid"
+            applicationId "com.udacity.gradle.builditbigger.paid"
+            versionName "1.0-paid"
+            //Used to identify in the BuildConfig if flavor is free or paid
+            buildConfigField "boolean", "PAID_VERSION", "true"
         }
     }
+
+
 
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.material:material:1.0.0'
     endpointsServer project(path: ':backend', configuration: 'endpoints')
     implementation project(':joketeller')
     implementation project(':jokefactorydisplay')
-    implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.google.android.gms:play-services-ads:17.1.2'

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Build it Bigger - Ad Version</string>
+    <string name="instructions">Press the button for a free joke!</string>
+    <string name="banner_ad_unit_id">ca-app-pub-9012419098452619/2159667826</string>
+    <string name="test_interstitial_ads">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_application_id">ca-app-pub-9012419098452619~4850298399</string>
+</resources>

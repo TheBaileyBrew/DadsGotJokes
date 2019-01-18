@@ -33,6 +33,12 @@ public class JokeTeller {
                 "A f-shhh..."));
         jokesOfTheDadVariety.add(new Joke(11, "Why did the coffee file a police report?",
                 "Because he got mugged..."));
+        jokesOfTheDadVariety.add(new Joke(12, "Did you hear about the guy addicted to brake fluid?",
+                "He claimed he could stop whenever he wanted..."));
+        jokesOfTheDadVariety.add(new Joke(13, "What do you call a fake noodle?",
+                "An impasta..."));
+        jokesOfTheDadVariety.add(new Joke(14, "Did you hear about the man terrified of elevators?",
+                "He finally started taking steps to avoid them..."));
 
 
         return jokesOfTheDadVariety.get(randomJoke.nextInt(jokesOfTheDadVariety.size()));
