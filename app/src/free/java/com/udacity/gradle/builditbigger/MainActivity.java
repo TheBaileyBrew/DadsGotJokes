@@ -21,7 +21,6 @@ import static com.udacity.gradle.builditbigger.MainActivityFragment.showProgress
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private final static String TAG = MainActivity.class.getSimpleName();
     private Button tellJokeButton;
-    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,33 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void initInterstitialAds() {
-        MobileAds.initialize(this, getString(R.string.admob_application_id));
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.test_interstitial_ads));
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                super.onAdClosed();
-                //Ad was shown... Now Joke can be laughed at
-                getNewJoke();
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                super.onAdFailedToLoad(errorCode);
-                Log.i(TAG, "onAdFailedToLoad: ad Failed with code:" + errorCode);
-                Toast.makeText(MainActivity.this, "Failed to load... getting new joke", Toast.LENGTH_SHORT).show();
-                getNewJoke();
-            }
-
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-            }
-        });
-    }
 
     private void initViews() {
         tellJokeButton = findViewById(R.id.tell_me_a_joke);
@@ -97,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Runnable r = new Runnable() {
                     @Override
                     public void run() {
-                        initInterstitialAds();
+                        getNewJoke();
                     }
                 };
                 handler.postDelayed(r, 500);

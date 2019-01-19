@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class JokeDisplayActivity extends AppCompatActivity {
+public class JokeDisplayActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = JokeDisplayActivity.class.getSimpleName();
 
     @Override
@@ -17,6 +19,8 @@ public class JokeDisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joke_display);
         TextView jokeTextView = findViewById(R.id.display_joke);
+        ConstraintLayout mainDisplay = findViewById(R.id.main_screen_display_activity);
+        mainDisplay.setOnClickListener(this);
         final TextView jokeAnswerView = findViewById(R.id.display_answer);
         final ImageView jokeImageView = findViewById(R.id.joke_dog_image);
 
@@ -46,4 +50,10 @@ public class JokeDisplayActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.main_screen_display_activity) {
+            finish();
+        }
+    }
 }
