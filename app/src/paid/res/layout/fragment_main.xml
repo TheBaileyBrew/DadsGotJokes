@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:textColor="@color/colorAccentDark"
         android:text="@string/instructions" />
 
     <Button
@@ -24,6 +25,10 @@
         android:layout_below="@+id/instructions_text_view"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_centerHorizontal="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:text="@string/button_text" />
 
     <ProgressBar
@@ -36,7 +41,7 @@
         android:layout_centerInParent="true"
         android:scaleX="1.25"
         android:scaleY=".75"
-        android:indeterminateTint="@android:color/holo_red_dark"
+        android:indeterminateTint="@color/colorAccentLight"
         android:indeterminate="true"/>
 
 </RelativeLayout>
